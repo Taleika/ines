@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Invitación XV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  h2,h3 {
+    font-family: 'Parisienne', cursive;
+    margin: 15px 0;
+    line-height: 1.2;
+  }
+  h2 { font-size: 3em; }
+  h3 { font-size: 2.2em; }
+
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+  }
+
+  /* Header parallax */
+  header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  header img.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    max-width: 80%;
+    z-index: 2;
+  }
+
+  .parallax {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 100px 20px;
+    overflow: hidden;
+  }
+
+  section {
+    padding: 50px 20px;
+  }
+
+  /* Countdown */
+  .countdown-section {
+    background: #f8e6ec;
+    padding: 50px 20px;
+  }
+  .countdown-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .countdown span {
+    background: rgba(255,255,255,0.7);
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s;
+  }
+  .countdown small {
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: normal;
+    color: #555;
+  }
+
+  /* Iconos animados */
+  .icon {
+    width: 120px;
+    margin: 0 auto 25px;
+    animation: pulse 1.8s ease-in-out infinite;
+    display: block;
+  }
+  @keyframes pulse {
+    0%,100%{ transform: scale(1); }
+    50%{ transform: scale(1.15); }
+  }
+
+  /* Galería */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Botones */
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #d6336c;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  .btn:hover { background: #a82450; }
+
+  /* Modal */
+  .modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+  }
+  .modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.7em; }
+    .countdown span { font-size: 16px; padding: 10px; min-width: 55px; }
+    .icon { width: 50px; }
+    header img.logo { width: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="parallax" id="hero" style="background-image:url('images/hero.jpg');">
+  <img src="images/logo.png" alt="Nombre Quinceañera" class="logo">
+</header>
+
+<!-- Countdown -->
+<section class="countdown-section">
+  <h2 class="countdown-title">Faltan...</h2>
+  <div class="countdown">
+    <span id="days">00 <small>Días</small></span>
+    <span id="hours">00 <small>Horas</small></span>
+    <span id="mins">00 <small>Min</small></span>
+    <span id="secs">00 <small>Seg</small></span>
+  </div>
+</section>
+
+<!-- Fiesta -->
+<section>
+  <img src="images/icono-fiesta.svg" alt="Fiesta" class="icon">
+  <h2>Fiesta</h2>
+  <p><strong>1 de Noviembre de 2025</strong><br>
+  21:00 hs<br>
+  Salón La Rural</p>
+  <a href="https://maps.app.goo.gl/WE4qaYet3WuQaiMZ9" target="_blank" class="btn">Cómo llegar</a>
+</section>
+
+<!-- Galería 1 -->
+<section>
+  <h3>Galería</h3>
+  <div class="gallery">
+    <img src="images/foto1.jpg" alt="foto1">
+    <img src="images/foto2.jpg" alt="foto2">
+    <img src="images/foto3.jpg" alt="foto3">
+    <img src="images/foto4.jpg" alt="foto4">
+  </div>
+</section>
+
+<!-- Confirmación -->
+<section style="background:#f8e6ec;">
+  <h2>Confirmación de Asistencia</h2>
+  <p>Cuento con tu presencia.<br>¡Confirmá tu asistencia!</p>
+  <a href="https://forms.gle/XXXXXXXXXXXX" target="_blank" class="btn">Confirmar asistencia</a>
+</section>
+
+<!-- Dress Code -->
+<section style="background:#00E08D;">
+  <img src="images/icono-dresscode.svg" alt="Dress Code" class="icon">
+  <h2>Dress Code</h2>
+  <p>Elegante</p>
+</section>
+
+<!-- Instagram -->
+<section class="parallax" style="background-image:url('images/foto1.jpg'); height:300px;">
+  <img src="images/icono-instagram.svg" alt="Instagram" class="icon">
+  <h2>@ines</h2>
+  <p>¡Preparate para esta gran fiesta!<br>
+  Seguime en mi cuenta de Instagram y etiquetame en tus fotos y videos.</p>
+</section>
+
+<!-- Música -->
+<section style="background:#f8e6ec;">
+  <img src="images/icono-canciones.svg" alt="Canciones" class="icon">
+  <h2>¡Ayudame a elegir la música!</h2>
+  <p>Podés sugerir tus canciones favoritas para la fiesta.</p>
+  <a href="https://forms.gle/XXXXXXXXXXXX" target="_blank" class="btn">Sugerir Canción</a>
+</section>
+
+<!-- Galería 2 -->
+<section>
+  <h3>Más Recuerdos</h3>
+  <div class="gallery">
+    <img src="images/foto5.jpg" alt="foto5">
+    <img src="images/foto6.jpg" alt="foto6">
+    <img src="images/foto7.jpg" alt="foto7">
+    <img src="images/foto8.jpg" alt="foto8">
+  </div>
+</section>
+
+<!-- Regalos -->
+<section>
+  <img src="images/icono-regalo.svg" alt="Regalos" class="icon">
+  <h2>Regalos</h2>
+  <p>¡Tu presencia es el regalo más importante!<br>
+  Pero si deseas hacerme un obsequio en el salón encontrarás un buzón donde dejar tu sobre o podrás depositar en la siguiente cuenta:</p>
+  <p><strong>Nombre Apellido</strong><br>
+  CBU: 00000000000000<br>
+  Alias: ejemplo.alias</p>
+</section>
+
+<!-- Gracias -->
+<section style="background:#f8e6ec;">
+  <h2>Gracias por acompañarme</h2>
+</section>
+
+<!-- Modal Lightbox -->
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+</div>
+
+<script>
+  // Countdown
+  const eventDate = new Date("2025-11-01T21:00:00");
+  function updateCountdown() {
+    const now = new Date();
+    const diff = eventDate - now;
+    if(diff <= 0) return;
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const s = Math.floor((diff % (1000*60)) / 1000);
+    document.getElementById("days").innerHTML = d + " <small>Días</small>";
+    document.getElementById("hours").innerHTML = h + " <small>Horas</small>";
+    document.getElementById("mins").innerHTML = m + " <small>Min</small>";
+    document.getElementById("secs").innerHTML = s + " <small>Seg</small>";
+  }
+  setInterval(updateCountdown, 1000);
+
+  // Lightbox
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  document.querySelectorAll('.gallery img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      modal.style.display='flex';
+      modalImg.src=img.src;
+    });
+  });
+  modal.addEventListener('click', ()=>{ modal.style.display='none'; });
+
+  // Parallax lento
+  const parallaxElems = document.querySelectorAll('.parallax');
+  window.addEventListener('scroll', ()=>{
+    parallaxElems.forEach(el=>{
+      const speed = 0.25;
+      const yOffset = window.pageYOffset * speed;
+      el.style.backgroundPosition = `center ${yOffset}px`;
+    });
+  });
+</script>
+</body>
+</html>
+
