@@ -30,7 +30,7 @@
     margin: 0 auto 20px auto;
   }
 
-  /* Header parallax */
+  /* Header */
   header {
     position: relative;
     height: 100vh;
@@ -38,14 +38,14 @@
   }
   header img.logo {
     position: absolute;
-    top: 65%; 
+    bottom: 20px; /* parte baja de la imagen */
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 390px; 
+    transform: translateX(-50%);
+    width: 390px; /* +50% respecto a 260px */
     max-width: 80%;
     z-index: 2;
-    filter: invert(1); 
-    transition: transform 0.2s;
+    filter: invert(1);
+    transition: opacity 0.5s;
   }
 
   .parallax {
@@ -56,7 +56,6 @@
     color: #fff;
     padding: 100px 20px;
     overflow: hidden;
-    transition: background-position 0.2s;
   }
 
   section {
@@ -102,7 +101,7 @@
 
   /* Iconos animados */
   .icon {
-    width: 180px; 
+    width: 180px; /* +50% respecto a 120px */
     margin: 0 auto 25px;
     animation: pulse 1.8s ease-in-out infinite;
     display: block;
@@ -160,7 +159,8 @@
 
   /* Secciones verdes */
   .green-section {
-    background-color: #a6c5b7;
+    background: #a6c5b7;
+    color: #fff;
   }
 
   /* Responsive */
@@ -168,16 +168,16 @@
     h2 { font-size: 2em; }
     h3 { font-size: 1.7em; }
     .countdown span { font-size: 16px; padding: 10px; min-width: 55px; }
-    .icon { width: 90px; } 
-    header img.logo { width: 300px; top: 60%; }
+    .icon { width: 90px; }
+    header img.logo { width: 300px; }
   }
 </style>
 </head>
 <body>
 
 <!-- Hero -->
-<header class="parallax" id="hero" style="background-image:url('images/hero.jpg');">
-  <img src="images/logo.png" alt="Nombre Quinceañera" class="logo">
+<header class="parallax" style="background-image:url('images/hero.jpg');">
+  <img src="images/logo.png" alt="Nombre Quinceañera" class="logo" id="hero-logo">
 </header>
 
 <!-- Countdown -->
@@ -227,7 +227,7 @@
 </section>
 
 <!-- Instagram -->
-<section class="parallax" style="background-image:url('images/foto1.jpg'); height:300px;">
+<section class="parallax" style="background-image:url('images/imagenig.jpg'); height:300px; background-size: cover; background-position: center;">
   <img src="images/icono-instagram.svg" alt="Instagram" class="icon">
   <h2>@ines</h2>
   <p>¡Preparate para esta gran fiesta!<br>
@@ -303,10 +303,8 @@
   });
   modal.addEventListener('click', ()=>{ modal.style.display='none'; });
 
-  // Parallax suave y en misma dirección que scroll
+  // Parallax
   const parallaxElems = document.querySelectorAll('.parallax');
-  const logo = document.querySelector('header img.logo');
-  const heroSection = document.getElementById('hero');
   window.addEventListener('scroll', ()=>{
     const offset = window.pageYOffset;
     parallaxElems.forEach(el=>{
@@ -315,13 +313,13 @@
       el.style.backgroundPosition = `center ${yPos}px`;
     });
 
-    if(logo){
-      const logoSpeed = 0.1;
-      const logoY = offset * -logoSpeed;
-      const heroHeight = heroSection.offsetHeight;
-      // Sticky visual: logo se mueve hasta que el scroll supera la sección hero
-      const limitedY = Math.min(logoY, heroHeight * 0.3);
-      logo.style.transform = `translate(-50%, calc(-50% + ${limitedY}px))`;
+    // Logo hero
+    const hero = document.querySelector('header');
+    const logo = document.getElementById('hero-logo');
+    if(window.pageYOffset > hero.offsetHeight){
+      logo.style.opacity = 0;
+    } else {
+      logo.style.opacity = 1;
     }
   });
 </script>
