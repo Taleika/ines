@@ -111,7 +111,7 @@
     color: #555;
   }
 
-  /* Iconos animados (agrandados 20%) */
+  /* Iconos animados (latido) */
   .icon {
     width: 216px;
     margin: 0 auto 25px;
@@ -185,7 +185,7 @@
     background-repeat: no-repeat;
   }
 
-  /* Botón de música superior izquierdo */
+  /* Botón música esquina superior izquierda */
   #music-btn {
     position: fixed;
     top: 20px;
@@ -195,10 +195,11 @@
     cursor: pointer;
     z-index: 999;
     animation: pulse 1.8s ease-in-out infinite;
-    display: block;
-    transition: transform 0.3s;
+    transition: filter 0.3s;
   }
-  #music-btn:hover { transform: scale(1.2); }
+  #music-btn.playing {
+    filter: brightness(1.5) drop-shadow(0 0 10px #f39c12);
+  }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -207,7 +208,6 @@
     .countdown span { font-size: 16px; padding: 10px; min-width: 55px; }
     .icon { width: 108px; }
     header img.logo { width: 300px; }
-    #music-btn { width: 48px; height: 48px; }
   }
 </style>
 </head>
@@ -215,7 +215,7 @@
 
 <!-- Música -->
 <audio id="bg-music" src="images/music.mp3" loop></audio>
-<img id="music-btn" src="images/icono-musica_play.svg" alt="Música">
+<img src="images/icono-musica_play.svg" id="music-btn" alt="Música">
 
 <!-- Hero -->
 <header class="parallax" style="background-image:url('images/hero.jpg');">
@@ -281,7 +281,7 @@
   Seguime en mi cuenta de Instagram y etiquetame en tus fotos y videos.</p>
 </section>
 
-<!-- Música sección -->
+<!-- Música -->
 <section style="background:#f8e6ec;">
   <img src="images/icono-canciones.svg" alt="Canciones" class="icon">
   <h2>¡Ayudame a elegir la música!</h2>
@@ -371,7 +371,7 @@
     }
   });
 
-  // Música botón superior izquierdo
+  // Música control play/pausa con cambio de efecto
   const music = document.getElementById("bg-music");
   const musicBtn = document.getElementById("music-btn");
   let isPlaying = false;
@@ -380,17 +380,16 @@
     if(isPlaying){
       music.pause();
       isPlaying = false;
-      musicBtn.src = "images/icono-musica_play.svg";
+      musicBtn.classList.remove("playing");
     } else {
       music.play();
       isPlaying = true;
-      musicBtn.src = "images/icono-musica_pause.svg";
+      musicBtn.classList.add("playing");
     }
   });
 </script>
 </body>
 </html>
-
 
 
 
