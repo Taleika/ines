@@ -30,6 +30,7 @@
     margin: 0 auto 20px auto;
   }
 
+  /* Header */
   header {
     position: relative;
     width: 100%;
@@ -69,8 +70,11 @@
     overflow: hidden;
   }
 
-  section { padding: 50px 20px; }
+  section {
+    padding: 50px 20px;
+  }
 
+  /* Countdown */
   .countdown-section {
     background: #f8e6ec;
     padding: 50px 20px;
@@ -107,6 +111,7 @@
     color: #555;
   }
 
+  /* Iconos animados (agrandados 20%) */
   .icon {
     width: 216px;
     margin: 0 auto 25px;
@@ -118,6 +123,7 @@
     50%{ transform: scale(1.15); }
   }
 
+  /* Galería */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -131,8 +137,11 @@
     cursor: pointer;
     transition: transform 0.3s;
   }
-  .gallery img:hover { transform: scale(1.05); }
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
 
+  /* Botones gris oscuro */
   .btn {
     display: inline-block;
     margin-top: 20px;
@@ -146,6 +155,7 @@
   }
   .btn:hover { background: #555; }
 
+  /* Modal */
   .modal {
     position: fixed;
     inset: 0;
@@ -155,10 +165,19 @@
     background: rgba(0,0,0,0.95);
     z-index: 1000;
   }
-  .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
+  .modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+  }
 
-  .green-section { background: #a6c5b7; color: #fff; }
+  /* Secciones verdes */
+  .green-section {
+    background: #a6c5b7;
+    color: #fff;
+  }
 
+  /* Instagram */
   #instagram {
     height: 300px;
     background-size: cover;
@@ -166,17 +185,22 @@
     background-repeat: no-repeat;
   }
 
+  /* Botón de música superior izquierdo */
   #music-btn {
     position: fixed;
     top: 20px;
-    left: 20px; /* movido a la izquierda */
+    left: 20px;
     width: 60px;
     height: 60px;
     cursor: pointer;
     z-index: 999;
     animation: pulse 1.8s ease-in-out infinite;
+    display: block;
+    transition: transform 0.3s;
   }
+  #music-btn:hover { transform: scale(1.2); }
 
+  /* Responsive */
   @media (max-width: 768px) {
     h2 { font-size: 2em; }
     h3 { font-size: 1.7em; }
@@ -191,19 +215,19 @@
 
 <!-- Música -->
 <audio id="bg-music" src="images/music.mp3" loop></audio>
-
-<!-- Botón de música -->
-<img id="music-btn" src="images/icono-musica_play.svg" alt="Música" class="icon">
+<img id="music-btn" src="images/icono-musica_play.svg" alt="Música">
 
 <!-- Hero -->
 <header class="parallax" style="background-image:url('images/hero.jpg');">
   <img src="images/logo.png" alt="Nombre Quinceañera" class="logo" id="hero-logo">
 </header>
 
+<!-- Nueva sección con frase -->
 <section style="background:#fff;">
   <h2>Te espero para festejar éste gran momento de mi vida</h2>
 </section>
 
+<!-- Countdown -->
 <section class="countdown-section">
   <h2 class="countdown-title">Faltan...</h2>
   <div class="countdown">
@@ -214,6 +238,7 @@
   </div>
 </section>
 
+<!-- Fiesta -->
 <section>
   <img src="images/icono-fiesta.svg" alt="Fiesta" class="icon">
   <h2>Fiesta</h2>
@@ -224,6 +249,7 @@
   <a href="https://maps.app.goo.gl/WE4qaYet3WuQaiMZ9" target="_blank" class="btn">Cómo llegar</a>
 </section>
 
+<!-- Galería 1 -->
 <section>
   <div class="gallery">
     <img src="images/foto1.jpg" alt="foto1">
@@ -233,18 +259,21 @@
   </div>
 </section>
 
+<!-- Confirmación -->
 <section style="background:#f8e6ec;">
   <h2>Confirmación de Asistencia</h2>
   <p>Cuento con tu presencia.<br>¡Confirmá tu asistencia antes del 13/10/25!</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScwjZcXACE7VqmIOW7bD0hBWwTjksDZLweEkKubKQrWb_y4lg/viewform?usp=header" target="_blank" class="btn">Confirmar asistencia</a>
 </section>
 
+<!-- Dress Code -->
 <section class="green-section">
   <img src="images/icono-dresscode.svg" alt="Dress Code" class="icon">
   <h2>Dress Code</h2>
   <p>Elegante</p>
 </section>
 
+<!-- Instagram -->
 <section id="instagram" class="parallax" style="background-image:url('images/imagenig.jpg');">
   <img src="images/icono-instagram.svg" alt="Instagram" class="icon">
   <h2>@ines</h2>
@@ -252,6 +281,7 @@
   Seguime en mi cuenta de Instagram y etiquetame en tus fotos y videos.</p>
 </section>
 
+<!-- Música sección -->
 <section style="background:#f8e6ec;">
   <img src="images/icono-canciones.svg" alt="Canciones" class="icon">
   <h2>¡Ayudame a elegir la música!</h2>
@@ -259,6 +289,7 @@
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJvf93UP5ErerIlU-2tuHsLD_dbWW0cqEXO4pPIYMQ7JyxPQ/viewform?usp=header" target="_blank" class="btn">Sugerir Canción</a>
 </section>
 
+<!-- Galería 2 -->
 <section>
   <div class="gallery">
     <img src="images/foto5.jpg" alt="foto5">
@@ -268,6 +299,7 @@
   </div>
 </section>
 
+<!-- Regalos -->
 <section class="green-section">
   <img src="images/icono-regalo.svg" alt="Regalos" class="icon">
   <h2>Regalos</h2>
@@ -278,10 +310,12 @@
   <strong>Alias:</strong> Ines.mis.quince</p>
 </section>
 
+<!-- Gracias -->
 <section style="background:#f8e6ec;">
   <h2>Gracias por acompañarme</h2>
 </section>
 
+<!-- Modal Lightbox -->
 <div class="modal" id="modal">
   <img id="modal-img" src="">
 </div>
@@ -337,7 +371,7 @@
     }
   });
 
-  // Botón de música
+  // Música botón superior izquierdo
   const music = document.getElementById("bg-music");
   const musicBtn = document.getElementById("music-btn");
   let isPlaying = false;
@@ -356,6 +390,7 @@
 </script>
 </body>
 </html>
+
 
 
 
