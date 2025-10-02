@@ -185,6 +185,18 @@
     background-repeat: no-repeat;
   }
 
+  /* Botón de música superior derecho */
+  #music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 999;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     h2 { font-size: 2em; }
@@ -192,6 +204,7 @@
     .countdown span { font-size: 16px; padding: 10px; min-width: 55px; }
     .icon { width: 108px; }
     header img.logo { width: 300px; }
+    #music-btn { width: 48px; height: 48px; }
   }
 </style>
 </head>
@@ -199,6 +212,9 @@
 
 <!-- Música -->
 <audio id="bg-music" src="images/music.mp3" loop></audio>
+
+<!-- Botón de música -->
+<img id="music-btn" src="images/icono-musica_play.svg" alt="Música" class="icon">
 
 <!-- Hero -->
 <header class="parallax" style="background-image:url('images/hero.jpg');">
@@ -264,7 +280,7 @@
   Seguime en mi cuenta de Instagram y etiquetame en tus fotos y videos.</p>
 </section>
 
-<!-- Música -->
+<!-- Música sección -->
 <section style="background:#f8e6ec;">
   <img src="images/icono-canciones.svg" alt="Canciones" class="icon">
   <h2>¡Ayudame a elegir la música!</h2>
@@ -354,18 +370,37 @@
     }
   });
 
-  // Música autoplay al primer clic/touch
-  const music = document.getElementById("bg-music");
+  // Control de música
+  const musicBtn = document.getElementById("music-btn");
+  let isPlaying = false;
+
+  musicBtn.addEventListener("click", () => {
+    if(isPlaying){
+      music.pause();
+      isPlaying = false;
+      musicBtn.src = "images/icono-musica_play.svg";
+    } else {
+      music.play();
+      isPlaying = true;
+      musicBtn.src = "images/icono-musica_pause.svg";
+    }
+  });
+
+  // Reproducir música al primer click/touch en pantalla
   function startMusic() {
-    music.play();
+    if(!isPlaying){
+      music.play();
+      isPlaying = true;
+      musicBtn.src = "images/icono-musica_pause.svg";
+    }
     document.removeEventListener("click", startMusic);
     document.removeEventListener("touchstart", startMusic);
   }
   document.addEventListener("click", startMusic);
   document.addEventListener("touchstart", startMusic);
-
 </script>
 </body>
 </html>
+
 
 
