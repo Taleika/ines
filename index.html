@@ -185,26 +185,6 @@
     background-repeat: no-repeat;
   }
 
-  /* Botón control de música */
-  #music-control {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    z-index: 999;
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     h2 { font-size: 2em; }
@@ -218,8 +198,7 @@
 <body>
 
 <!-- Música -->
-<audio id="bg-music" src="images/music.mp3" autoplay loop></audio>
-<button id="music-control">⏸</button>
+<audio id="bg-music" src="images/music.mp3" loop></audio>
 
 <!-- Hero -->
 <header class="parallax" style="background-image:url('images/hero.jpg');">
@@ -375,19 +354,16 @@
     }
   });
 
-  // Música control play/pausa
+  // Música autoplay al primer clic/touch
   const music = document.getElementById("bg-music");
-  const control = document.getElementById("music-control");
+  function startMusic() {
+    music.play();
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+  }
+  document.addEventListener("click", startMusic);
+  document.addEventListener("touchstart", startMusic);
 
-  control.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-      control.textContent = "⏸";
-    } else {
-      music.pause();
-      control.textContent = "▶️";
-    }
-  });
 </script>
 </body>
 </html>
