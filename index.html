@@ -30,22 +30,21 @@
     margin: 0 auto 20px auto;
   }
 
-  /* Header (modificado para móvil: proporción cuadrada) */
+  /* Header */
   header {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;          /* mantiene proporción cuadrada en móviles */
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    padding: 0;                    /* anula padding de .parallax solo para header */
+    padding: 0;
   }
-  /* Restaurar comportamiento en pantallas grandes */
   @media (min-width: 769px) {
     header {
-      height: 100vh;              /* vuelve a ocupar toda la pantalla en desktop */
+      height: 100vh;
       aspect-ratio: auto;
-      padding: 100px 20px;        /* resto del padding que usan las secciones parallax */
+      padding: 100px 20px;
     }
   }
 
@@ -112,9 +111,9 @@
     color: #555;
   }
 
-  /* Iconos animados */
+  /* Iconos animados (agrandados 20%) */
   .icon {
-    width: 180px;
+    width: 216px;
     margin: 0 auto 25px;
     animation: pulse 1.8s ease-in-out infinite;
     display: block;
@@ -132,8 +131,8 @@
   }
   .gallery img {
     width: 100%;
-    height: 180px; /* cuadradas */
-    object-fit: cover; /* recorta manteniendo proporción */
+    height: 180px;
+    object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s;
@@ -142,19 +141,19 @@
     transform: scale(1.05);
   }
 
-  /* Botones */
+  /* Botones gris oscuro */
   .btn {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 25px;
-    background: #d6336c;
+    background: #333;
     color: #fff;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s;
   }
-  .btn:hover { background: #a82450; }
+  .btn:hover { background: #555; }
 
   /* Modal */
   .modal {
@@ -178,7 +177,7 @@
     color: #fff;
   }
 
-  /* Instagram (altura fija, con parallax suave) */
+  /* Instagram */
   #instagram {
     height: 300px;
     background-size: cover;
@@ -186,22 +185,51 @@
     background-repeat: no-repeat;
   }
 
+  /* Botón control de música */
+  #music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     h2 { font-size: 2em; }
     h3 { font-size: 1.7em; }
     .countdown span { font-size: 16px; padding: 10px; min-width: 55px; }
-    .icon { width: 90px; }
+    .icon { width: 108px; }
     header img.logo { width: 300px; }
   }
 </style>
 </head>
 <body>
 
+<!-- Música -->
+<audio id="bg-music" src="images/music.mp3" autoplay loop></audio>
+<button id="music-control">⏸</button>
+
 <!-- Hero -->
 <header class="parallax" style="background-image:url('images/hero.jpg');">
   <img src="images/logo.png" alt="Nombre Quinceañera" class="logo" id="hero-logo">
 </header>
+
+<!-- Nueva sección con frase -->
+<section style="background:#fff;">
+  <h2>Te espero para festejar éste gran momento de mi vida</h2>
+</section>
 
 <!-- Countdown -->
 <section class="countdown-section">
@@ -220,8 +248,9 @@
   <h2>Fiesta</h2>
   <p><strong>1 de Noviembre de 2025</strong><br>
   21:00 hs<br>
-  Salón La Rural</p>
-  <a href="https://maps.app.goo.gl/cMYS7uiGzi4KDHX87" target="_blank" class="btn">Cómo llegar</a>
+  Salón La Rural<br>
+  Saladillo, BsAs</p>
+  <a href="https://maps.app.goo.gl/WE4qaYet3WuQaiMZ9" target="_blank" class="btn">Cómo llegar</a>
 </section>
 
 <!-- Galería 1 -->
@@ -237,7 +266,7 @@
 <!-- Confirmación -->
 <section style="background:#f8e6ec;">
   <h2>Confirmación de Asistencia</h2>
-  <p>Cuento con tu presencia.<br>¡Confirmá tu asistencia!</p>
+  <p>Cuento con tu presencia.<br>¡Confirmá tu asistencia antes del 13/10/25!</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScwjZcXACE7VqmIOW7bD0hBWwTjksDZLweEkKubKQrWb_y4lg/viewform?usp=header" target="_blank" class="btn">Confirmar asistencia</a>
 </section>
 
@@ -248,10 +277,10 @@
   <p>Elegante</p>
 </section>
 
-<!-- Instagram con parallax -->
+<!-- Instagram -->
 <section id="instagram" class="parallax" style="background-image:url('images/imagenig.jpg');">
   <img src="images/icono-instagram.svg" alt="Instagram" class="icon">
-  <h2>@inejaurena</h2>
+  <h2>@ines</h2>
   <p>¡Preparate para esta gran fiesta!<br>
   Seguime en mi cuenta de Instagram y etiquetame en tus fotos y videos.</p>
 </section>
@@ -330,23 +359,33 @@
     parallaxElems.forEach(el=>{
       const rect = el.getBoundingClientRect();
       const offset = window.pageYOffset + rect.top;
-      const speed = (el.id === "instagram") ? 0.1 : 0.2; // Instagram más lento
+      const speed = (el.id === "instagram") ? 0.1 : 0.2;
       const yPos = (window.pageYOffset - offset) * speed;
-
-      // Limitar para que no se salga del cuadro
       const maxOffset = el.offsetHeight * 0.3;
       const finalY = Math.max(-maxOffset, Math.min(maxOffset, yPos));
-
       el.style.backgroundPosition = `center ${finalY}px`;
     });
 
-    // Logo hero
     const hero = document.querySelector('header');
     const logo = document.getElementById('hero-logo');
     if(window.pageYOffset > hero.offsetHeight){
       logo.style.opacity = 0;
     } else {
       logo.style.opacity = 1;
+    }
+  });
+
+  // Música control play/pausa
+  const music = document.getElementById("bg-music");
+  const control = document.getElementById("music-control");
+
+  control.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      control.textContent = "⏸";
+    } else {
+      music.pause();
+      control.textContent = "▶️";
     }
   });
 </script>
