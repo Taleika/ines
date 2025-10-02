@@ -30,12 +30,25 @@
     margin: 0 auto 20px auto;
   }
 
-  /* Header */
+  /* Header (modificado para móvil: proporción cuadrada) */
   header {
     position: relative;
-    height: 100vh;
+    width: 100%;
+    aspect-ratio: 1 / 1;          /* mantiene proporción cuadrada en móviles */
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    padding: 0;                    /* anula padding de .parallax solo para header */
   }
+  /* Restaurar comportamiento en pantallas grandes */
+  @media (min-width: 769px) {
+    header {
+      height: 100vh;              /* vuelve a ocupar toda la pantalla en desktop */
+      aspect-ratio: auto;
+      padding: 100px 20px;        /* resto del padding que usan las secciones parallax */
+    }
+  }
+
   header img.logo {
     position: absolute;
     bottom: 20px;
@@ -339,5 +352,4 @@
 </script>
 </body>
 </html>
-
 
