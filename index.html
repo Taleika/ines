@@ -1,234 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Invitación Ines Mis XV</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Invitación Ines Mis XV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Evitar modo oscuro forzado -->
+  <meta name="color-scheme" content="light only">
 
-<!-- Forzar modo claro siempre -->
-<meta name="color-scheme" content="light">
-<style>
-  html, body {
-    color-scheme: only light;
-    background: #ffffff !important;
-    color: #000000 !important;
-  }
-</style>
+  <!-- Open Graph para WhatsApp / Facebook -->
+  <meta property="og:title" content="Te invito a Mis Quince Años!">
+  <meta property="og:description" content="Quiero compartir este momento tan importante con vos. Ingresá al siguiente link para ser parte de mi fiesta 🫶">
+  <meta property="og:image" content="https://taleika.github.io/ines/images/miniatura.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://taleika.github.io/ines">
+  <meta property="og:type" content="website">
 
-<!-- Open Graph para compartir en WhatsApp -->
-<meta property="og:title" content="Invitación Ines Mis XV">
-<meta property="og:description" content="Te invito a Mis Quince Años! Quiero compartir este momento tan importante con vos. 
-Ingresá al siguiente link para ser parte de mi fiesta 🫶">
-<meta property="og:image" content="https://taleika.github.io/ines/images/miniatura.jpg">
-<meta property="og:url" content="https://taleika.github.io/ines/">
-<meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Te invito a Mis Quince Años!">
+  <meta name="twitter:description" content="Quiero compartir este momento tan importante con vos. Ingresá al siguiente link para ser parte de mi fiesta 🫶">
+  <meta name="twitter:image" content="https://taleika.github.io/ines/images/miniatura.jpg">
 
-<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #fff;
-    color: #333;
-    text-align: center;
-    overflow-x: hidden;
-  }
-
-  h2,h3 {
-    font-family: 'Parisienne', cursive;
-    margin: 15px 0;
-    line-height: 1.2;
-  }
-  h2 { font-size: 3em; }
-  h3 { font-size: 2.2em; }
-
-  p {
-    font-size: 1em;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto 20px auto;
-  }
-
-  /* Header */
-  header {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    padding: 0;
-  }
-  @media (min-width: 769px) {
-    header {
-      height: 100vh;
-      aspect-ratio: auto;
-      padding: 100px 20px;
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
     }
-  }
 
-  header img.logo {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 390px;
-    max-width: 80%;
-    z-index: 2;
-    filter: invert(1);
-    transition: opacity 0.5s;
-  }
+    h2,h3 {
+      font-family: 'Parisienne', cursive;
+      margin: 15px 0;
+      line-height: 1.2;
+    }
+    h2 { font-size: 3em; }
+    h3 { font-size: 2.2em; }
 
-  .parallax {
-    position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    color: #fff;
-    padding: 100px 20px;
-    overflow: hidden;
-  }
+    p {
+      font-size: 1em;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+    }
 
-  section {
-    padding: 50px 20px;
-  }
+    /* Header */
+    header {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      padding: 0;
+    }
+    @media (min-width: 769px) {
+      header {
+        height: 100vh;
+        aspect-ratio: auto;
+        padding: 100px 20px;
+      }
+    }
 
-  /* Countdown */
-  .countdown-section {
-    background: #f8e6ec;
-    padding: 50px 20px;
-  }
-  .countdown-title {
-    font-family: 'Parisienne', cursive;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .countdown span {
-    background: rgba(255,255,255,0.7);
-    padding: 15px 20px;
-    border-radius: 12px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    min-width: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s;
-  }
-  .countdown small {
-    font-size: 12px;
-    margin-top: 5px;
-    font-weight: normal;
-    color: #555;
-  }
+    header img.logo {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 390px;
+      max-width: 80%;
+      z-index: 2;
+      filter: invert(1);
+      transition: opacity 0.5s;
+    }
 
-  /* Iconos animados */
-  .icon {
-    width: 216px;
-    margin: 0 auto 25px;
-    animation: pulse 1.8s ease-in-out infinite;
-    display: block;
-  }
-  @keyframes pulse {
-    0%,100%{ transform: scale(1); }
-    50%{ transform: scale(1.15); }
-  }
+    .parallax {
+      position: relative;
+      background-size: cover;
+      background-repeat: repeat;
+      background-position: center center;
+      color: #fff;
+      padding: 100px 20px;
+      overflow: hidden;
+    }
 
-  /* Galería */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
-  }
-  .gallery img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  .gallery img:hover {
-    transform: scale(1.05);
-  }
+    section {
+      padding: 50px 20px;
+    }
 
-  /* Botones gris oscuro */
-  .btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #333;
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s;
-  }
-  .btn:hover { background: #555; }
+    /* Countdown */
+    .countdown-section {
+      background: #f8e6ec;
+      padding: 50px 20px;
+    }
+    .countdown-title {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .countdown span {
+      background: rgba(255,255,255,0.7);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      min-width: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s;
+    }
+    .countdown small {
+      font-size: 12px;
+      margin-top: 5px;
+      font-weight: normal;
+      color: #555;
+    }
 
-  /* Modal */
-  .modal {
-    position: fixed;
-    inset: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.95);
-    z-index: 1000;
-  }
-  .modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 12px;
-  }
+    /* Iconos animados (latido) */
+    .icon {
+      width: 216px;
+      margin: 0 auto 25px;
+      animation: pulse 1.8s ease-in-out infinite;
+      display: block;
+    }
+    @keyframes pulse {
+      0%,100%{ transform: scale(1); }
+      50%{ transform: scale(1.15); }
+    }
 
-  /* Secciones verdes */
-  .green-section {
-    background: #a6c5b7;
-    color: #fff;
-  }
+    /* Galería */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
 
-  /* Instagram */
-  #instagram {
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+    /* Botones gris oscuro */
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #333;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .btn:hover { background: #555; }
 
-  /* Botón música */
-  #music-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    z-index: 999;
-    animation: pulse 1.8s ease-in-out infinite;
-    transition: filter 0.3s;
-  }
-  #music-btn.playing {
-    filter: brightness(1.5) drop-shadow(0 0 10px #f39c12);
-  }
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    h2 { font-size: 2em; }
-    h3 { font-size: 1.7em; }
-    .countdown span { font-size: 16px; padding: 10px; min-width: 55px; }
-    .icon { width: 108px; }
-    header img.logo { width: 300px; }
-  }
-</style>
+    /* Secciones verdes */
+    .green-section {
+      background: #a6c5b7;
+      color: #fff;
+    }
+
+    /* Instagram */
+    #instagram {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+    }
+
+    /* Botón música esquina superior izquierda */
+    #music-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      z-index: 999;
+      animation: pulse 1.8s ease-in-out infinite;
+      transition: filter 0.3s;
+    }
+    #music-btn.playing {
+      filter: brightness(1.5) drop-shadow(0 0 10px #f39c12);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h2 { font-size: 2em; }
+      h3 { font-size: 1.7em; }
+      .countdown span { font-size: 16px; padding: 10px; min-width: 55px; }
+      .icon { width: 108px; }
+      header img.logo { width: 300px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -243,7 +244,7 @@ Ingresá al siguiente link para ser parte de mi fiesta 🫶">
 
 <!-- Nueva sección con frase -->
 <section style="background:#fff;">
-  <h2>Te espero para festejar éste gran momento de mi vida</h2>
+  <h2 style="font-size:1.8em;">Te espero para festejar éste gran momento de mi vida</h2>
 </section>
 
 <!-- Countdown -->
@@ -409,7 +410,6 @@ Ingresá al siguiente link para ser parte de mi fiesta 🫶">
 </script>
 </body>
 </html>
-
 
 
 
