@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <title>Invitación Ines Mis XV</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Forzar modo claro siempre -->
+<meta name="color-scheme" content="light">
+<style>
+  html, body {
+    color-scheme: only light;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+</style>
+
+<!-- Open Graph para compartir en WhatsApp -->
+<meta property="og:title" content="Invitación Ines Mis XV">
+<meta property="og:description" content="Te invito a Mis Quince Años! Quiero compartir este momento tan importante con vos. 
+Ingresá al siguiente link para ser parte de mi fiesta 🫶">
+<meta property="og:image" content="https://taleika.github.io/ines/images/miniatura.jpg">
+<meta property="og:url" content="https://taleika.github.io/ines/">
+<meta property="og:type" content="website">
+
 <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   body {
@@ -111,7 +130,7 @@
     color: #555;
   }
 
-  /* Iconos animados (latido) */
+  /* Iconos animados */
   .icon {
     width: 216px;
     margin: 0 auto 25px;
@@ -185,7 +204,7 @@
     background-repeat: no-repeat;
   }
 
-  /* Botón música esquina superior izquierda */
+  /* Botón música */
   #music-btn {
     position: fixed;
     top: 20px;
@@ -215,7 +234,7 @@
 
 <!-- Música -->
 <audio id="bg-music" src="images/music.mp3" loop></audio>
-<img src="images/icono-musica_play.svg" id="music-btn" alt="Música">
+<img id="music-btn" src="images/icono-musica_play.svg" alt="Música">
 
 <!-- Hero -->
 <header class="parallax" style="background-image:url('images/hero.jpg');">
@@ -371,7 +390,7 @@
     }
   });
 
-  // Música control play/pausa con cambio de efecto
+  // Música control play/pausa
   const music = document.getElementById("bg-music");
   const musicBtn = document.getElementById("music-btn");
   let isPlaying = false;
